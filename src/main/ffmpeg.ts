@@ -9,6 +9,10 @@ import { app } from 'electron'
 const require = createRequire(join(__dirname, '..'))
 
 export function resolveBinary(name: 'ffmpeg' | 'ffprobe'): string {
+  if (app.isPackaged) {
+    const exe = process.platform === 'win32' ? '.exe' : ''
+    return join(process.resourcesPath, 'bin', `${name}${exe}`)
+  }
   try {
     const mod = require(name === 'ffmpeg' ? 'ffmpeg-static' : 'ffprobe-static')
     let p: string | undefined

@@ -25,6 +25,13 @@ jobs:
       - name: Build & package Windows installer
         run: npm run build:win
 
+      - name: Verify packaged binaries
+        shell: pwsh
+        run: |
+          Get-Item "dist\win-unpacked\resources\bin\ffmpeg.exe" | Select-Object FullName,Length
+          & "dist\win-unpacked\resources\bin\ffmpeg.exe" -version | Select-Object -First 1
+          & "dist\win-unpacked\resources\bin\ffprobe.exe" -version | Select-Object -First 1
+
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
         with:

@@ -10,6 +10,11 @@ asarUnpack:
 win:
   target:
     - nsis
+  extraResources:
+    - from: node_modules/ffmpeg-static/ffmpeg.exe
+      to: bin/ffmpeg.exe
+    - from: node_modules/ffprobe-static/bin/win32/x64/ffprobe.exe
+      to: bin/ffprobe.exe
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
@@ -17,3 +22,8 @@ mac:
   target:
     - dmg
   category: public.app-category.video
+  extraResources:
+    - from: node_modules/ffmpeg-static/ffmpeg
+      to: bin/ffmpeg
+    - from: node_modules/ffprobe-static/bin/darwin/arm64/ffprobe
+      to: bin/ffprobe
