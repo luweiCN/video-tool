@@ -1,6 +1,6 @@
 {
   "name": "video-trimmer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "批量移除视频开头画面帧的小工具",
   "main": "./out/main/index.js",
   "license": "MIT",
