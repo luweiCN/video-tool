@@ -1,0 +1,19 @@
+appId: com.videotrimmer.app
+productName: VideoTrimmer
+directories:
+  output: dist
+files:
+  - out/**
+asarUnpack:
+  - node_modules/ffmpeg-static/**
+  - node_modules/ffprobe-static/**
+win:
+  target:
+    - nsis
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+mac:
+  target:
+    - dmg
+  category: public.app-category.video
